@@ -9639,17 +9639,28 @@ module.exports = function(Chart) {
 				helpers.each(bodyItem.lines, function(line) {
 					// Draw Legend-like boxes if needed
 					if (drawColorBoxes) {
+						var radius = 6;
 						// Fill a white rect so that colours merge nicely if the opacity is < 1
+						// ctx.fillRect(pt.x, pt.y, bodyFontSize, bodyFontSize);
+						ctx.save();
+						ctx.beginPath();
 						ctx.fillStyle = mergeOpacity(vm.legendColorBackground, opacity);
-						ctx.fillRect(pt.x, pt.y, bodyFontSize, bodyFontSize);
+						ctx.ellipse(pt.x + radius, pt.y + radius, radius, radius, 45 * Math.PI/180, 0, 2 * Math.PI);
+						ctx.fill();
+						ctx.restore();
 
 						// Border
-						ctx.strokeStyle = mergeOpacity(vm.labelColors[i].borderColor, opacity);
-						ctx.strokeRect(pt.x, pt.y, bodyFontSize, bodyFontSize);
+						// ctx.strokeStyle = mergeOpacity(vm.labelColors[i].borderColor, opacity);
+						// ctx.strokeRect(pt.x, pt.y, bodyFontSize, bodyFontSize);
 
 						// Inner square
 						ctx.fillStyle = mergeOpacity(vm.labelColors[i].backgroundColor, opacity);
-						ctx.fillRect(pt.x + 1, pt.y + 1, bodyFontSize - 2, bodyFontSize - 2);
+						// ctx.fillRect(pt.x + 1, pt.y + 1, bodyFontSize - 2, bodyFontSize - 2);
+						ctx.save();
+						ctx.beginPath();
+						ctx.ellipse(pt.x + radius, pt.y + radius, radius, radius, 45 * Math.PI/180, 0, 2 * Math.PI);
+						ctx.fill();
+						ctx.restore();
 
 						ctx.fillStyle = textColor;
 					}
