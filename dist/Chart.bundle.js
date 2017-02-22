@@ -14735,28 +14735,34 @@ module.exports = function(Chart) {
 
 		        var radius = 3;
 
-		        if (corners[0][1] - corners[1][1] > 0) {
-			        ctx.moveTo(x + radius, y);
-			        ctx.lineTo(x + width - radius, y);
-			        ctx.quadraticCurveTo(x + width, y, x + width, y + radius);
-			        ctx.lineTo(x + width, y + height - radius);
-			        ctx.quadraticCurveTo(x + width, y + height, x + width - radius, y + height);
-			        ctx.lineTo(x + radius, y + height);
-			        ctx.quadraticCurveTo(x, y + height, x, y + height - radius);
-			        ctx.lineTo(x, y + radius);
-			        ctx.quadraticCurveTo(x, y, x + radius, y);
+		        if (height > radius * 2) {
+			        if (corners[0][1] - corners[1][1] > 0) {
+				        ctx.moveTo(x + radius, y);
+				        ctx.lineTo(x + width - radius, y);
+				        ctx.quadraticCurveTo(x + width, y, x + width, y + radius);
+				        ctx.lineTo(x + width, y + height - radius);
+				        ctx.quadraticCurveTo(x + width, y + height, x + width - radius, y + height);
+				        ctx.lineTo(x + radius, y + height);
+				        ctx.quadraticCurveTo(x, y + height, x, y + height - radius);
+				        ctx.lineTo(x, y + radius);
+				        ctx.quadraticCurveTo(x, y, x + radius, y);
+			        }
+			        else {
+				        ctx.moveTo(x + radius, y);
+				        ctx.lineTo(x + width - radius, y);
+				        ctx.quadraticCurveTo(x + width, y, x + width, y - radius);
+				        ctx.lineTo(x + width, y - height + radius);
+				        ctx.quadraticCurveTo(x + width, y - height, x + width - radius, y - height);
+				        ctx.lineTo(x + radius, y - height);
+				        ctx.quadraticCurveTo(x, y - height, x, y - height + radius);
+				        ctx.lineTo(x, y - radius);
+				        ctx.quadraticCurveTo(x, y, x + radius, y);
+			        }
 		        }
 		        else {
-			        ctx.moveTo(x + radius, y);
-			        ctx.lineTo(x + width - radius, y);
-			        ctx.quadraticCurveTo(x + width, y, x + width, y - radius);
-			        ctx.lineTo(x + width, y - height + radius);
-			        ctx.quadraticCurveTo(x + width, y - height, x + width - radius, y - height);
-			        ctx.lineTo(x + radius, y - height);
-			        ctx.quadraticCurveTo(x, y - height, x, y - height + radius);
-			        ctx.lineTo(x, y - radius);
-			        ctx.quadraticCurveTo(x, y, x + radius, y);
+		        	ctx.lineTo(corner[0], corner[1]);
 		        }
+
 		    }
 
 			ctx.fill();
