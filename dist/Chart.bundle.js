@@ -14735,14 +14735,13 @@ module.exports = function(Chart) {
 
 		        var radius = 3;
 
-		        if (height > radius * 2) {
+		        if (height > radius) {
 			        if (corners[0][1] - corners[1][1] > 0) {
 				        ctx.moveTo(x + radius, y);
 				        ctx.lineTo(x + width - radius, y);
 				        ctx.quadraticCurveTo(x + width, y, x + width, y + radius);
 				        ctx.lineTo(x + width, y + height);
 				        ctx.lineTo(x, y + height);
-				        ctx.quadraticCurveTo(x, y + height, x, y + height);
 				        ctx.lineTo(x, y + radius);
 				        ctx.quadraticCurveTo(x, y, x + radius, y);
 			        }

@@ -146,7 +146,7 @@ module.exports = function(Chart) {
 
 		        var radius = 3;
 
-		        if (height > radius * 2) {
+		        if (height > radius) {
 			        if (corners[0][1] - corners[1][1] > 0) {
 				        ctx.moveTo(x + radius, y);
 				        ctx.lineTo(x + width - radius, y);
