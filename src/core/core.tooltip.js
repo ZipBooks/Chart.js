@@ -751,7 +751,16 @@ module.exports = function(Chart) {
 			var height = tooltipSize.height;
 			var radius = vm.cornerRadius;
 
+			ctx.save();
 			ctx.beginPath();
+
+			ctx.shadowBlur = 20;
+			ctx.shadowColor = 'rgba(0,0,0,.08)';
+			ctx.shadowOffsetX = 0;
+			ctx.shadowOffsetY = 1;
+
+			// 0 1px 4px 1px rgba(0,0,0,.08)
+
 			ctx.moveTo(x + radius, y);
 			if (yAlign === 'top') {
 				this.drawCaret(pt, tooltipSize);
@@ -780,6 +789,7 @@ module.exports = function(Chart) {
 			if (vm.borderWidth > 0) {
 				ctx.stroke();
 			}
+			ctx.restore();
 		},
 		draw: function() {
 			var ctx = this._chart.ctx;

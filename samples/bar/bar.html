@@ -34,12 +34,12 @@
                 borderColor: window.chartColors.red,
                 borderWidth: 1,
                 data: [
-                    randomScalingFactor(), 
-                    randomScalingFactor(), 
-                    randomScalingFactor(), 
-                    randomScalingFactor(), 
-                    randomScalingFactor(), 
-                    randomScalingFactor(), 
+                    randomScalingFactor(),
+                    randomScalingFactor(),
+                    randomScalingFactor(),
+                    randomScalingFactor(),
+                    randomScalingFactor(),
+                    randomScalingFactor(),
                     randomScalingFactor()
                 ]
             }, {
@@ -48,12 +48,12 @@
                 borderColor: window.chartColors.blue,
                 borderWidth: 1,
                 data: [
-                    randomScalingFactor(), 
-                    randomScalingFactor(), 
-                    randomScalingFactor(), 
-                    randomScalingFactor(), 
-                    randomScalingFactor(), 
-                    randomScalingFactor(), 
+                    randomScalingFactor(),
+                    randomScalingFactor(),
+                    randomScalingFactor(),
+                    randomScalingFactor(),
+                    randomScalingFactor(),
+                    randomScalingFactor(),
                     randomScalingFactor()
                 ]
             }]
@@ -73,8 +73,22 @@
                     title: {
                         display: true,
                         text: 'Chart.js Bar Chart'
-                    }
-                }
+                    },
+					tooltips: {
+				        backgroundColor: '#ffffff',
+				        titleFontColor: '#414141',
+				        bodyFontColor: '#414141',
+				        titleFontFamily: "'Karla', sans-serif",
+				        bodyFontFamily: "'Karla', sans-serif",
+				        titleFontSize: 14,
+				        bodyFontSize: 14,
+				        xPadding: 18,
+				        yPadding: 12,
+				        borderColor: '#f3f3f3',
+				        borderWidth: 1,
+		      		}
+
+                },
             });
 
         };
