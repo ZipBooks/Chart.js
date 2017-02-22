@@ -9712,11 +9712,6 @@ module.exports = function(Chart) {
 			ctx.save();
 			ctx.beginPath();
 
-			ctx.shadowBlur = 20;
-			ctx.shadowColor = 'rgba(0,0,0,.08)';
-			ctx.shadowOffsetX = 0;
-			ctx.shadowOffsetY = 1;
-
 			// 0 1px 4px 1px rgba(0,0,0,.08)
 
 			ctx.moveTo(x + radius, y);
@@ -9742,11 +9737,17 @@ module.exports = function(Chart) {
 			ctx.quadraticCurveTo(x, y, x + radius, y);
 			ctx.closePath();
 
-			ctx.fill();
-
 			if (vm.borderWidth > 0) {
 				ctx.stroke();
 			}
+
+			ctx.shadowBlur = this._options.shadowBlur || 20;
+			ctx.shadowColor = this._options.shadowColor || 'rgba(0,0,0,.08)';
+			ctx.shadowOffsetX = this._options.shadowColor || 0;
+			ctx.shadowOffsetY = this._options.shadowColor || 1;
+
+			ctx.fill();
+
 			ctx.restore();
 		},
 		draw: function() {
