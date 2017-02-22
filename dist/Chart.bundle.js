@@ -14719,10 +14719,45 @@ module.exports = function(Chart) {
 			var corner = cornerAt(0);
 			ctx.moveTo(corner[0], corner[1]);
 
-			for (var i = 1; i < 4; i++) {
-				corner = cornerAt(i);
-				ctx.lineTo(corner[0], corner[1]);
-			}
+		    for (var i = 1; i < 4; i++) {
+		        corner = cornerAt(i);
+		        // let nextCornerId = i + 1;
+		        // if (nextCornerId == 4){
+		        //     nextCornerId = 0
+		        // }
+
+		        // nextCorner = cornerAt(nextCornerId);
+
+		        var width = Math.abs(corners[2][0] - corners[1][0]);
+		        var height = Math.abs(corners[0][1] - corners[1][1]);
+		        var x = corners[1][0];
+		        var y = corners[1][1];
+
+		        var radius = 3;
+
+		        if (corners[0][1] - corners[1][1] > 0) {
+			        ctx.moveTo(x + radius, y);
+			        ctx.lineTo(x + width - radius, y);
+			        ctx.quadraticCurveTo(x + width, y, x + width, y + radius);
+			        ctx.lineTo(x + width, y + height - radius);
+			        ctx.quadraticCurveTo(x + width, y + height, x + width - radius, y + height);
+			        ctx.lineTo(x + radius, y + height);
+			        ctx.quadraticCurveTo(x, y + height, x, y + height - radius);
+			        ctx.lineTo(x, y + radius);
+			        ctx.quadraticCurveTo(x, y, x + radius, y);
+		        }
+		        else {
+			        ctx.moveTo(x + radius, y);
+			        ctx.lineTo(x + width - radius, y);
+			        ctx.quadraticCurveTo(x + width, y, x + width, y - radius);
+			        ctx.lineTo(x + width, y - height + radius);
+			        ctx.quadraticCurveTo(x + width, y - height, x + width - radius, y - height);
+			        ctx.lineTo(x + radius, y - height);
+			        ctx.quadraticCurveTo(x, y - height, x, y - height + radius);
+			        ctx.lineTo(x, y - radius);
+			        ctx.quadraticCurveTo(x, y, x + radius, y);
+		        }
+		    }
 
 			ctx.fill();
 			if (borderWidth) {
