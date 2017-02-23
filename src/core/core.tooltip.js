@@ -701,7 +701,7 @@ module.exports = function(Chart) {
 						// ctx.fillRect(pt.x + 1, pt.y + 1, bodyFontSize - 2, bodyFontSize - 2);
 						ctx.save();
 						ctx.beginPath();
-						ctx.ellipse(pt.x + radius, pt.y + radius, radius, radius, 45 * Math.PI/180, 0, 2 * Math.PI);
+						ctx.ellipse(pt.x + radius, pt.y + radius + 2.5, radius, radius, 45 * Math.PI/180, 0, 2 * Math.PI);
 						ctx.fill();
 						ctx.restore();
 
