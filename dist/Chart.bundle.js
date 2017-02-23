@@ -13532,7 +13532,7 @@ module.exports = function(Chart) {
 		var yf; // function to get the y alignment if the tooltip goes outside of the left or right edges
 		var midX = (chartArea.left + chartArea.right) / 2;
 		// ADAM CHANGED: prefer top unless goes out of bounds
-		var midY = chartArea.top - (this._options.topThreshold || 50);//(chartArea.top + chartArea.bottom) / 2;
+		var midY = chartArea.top - (tooltip._options.topThreshold || 50);//(chartArea.top + chartArea.bottom) / 2;
 
 		if (yAlign === 'center') {
 			lf = function(x) {
